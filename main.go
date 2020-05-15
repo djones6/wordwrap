@@ -3,6 +3,7 @@ package wordwrap
 import (
 	"fmt"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -21,11 +22,7 @@ func WordWrap(theString string, width int) string {
 		return theString
 	}
 
-	for index, char := range theString {
-		if char == ' ' {
-
-		}
-	}
-
-	return theString[0:width] + "\n" + theString[width:len(theString)]
+	firstBit := strings.TrimSpace(theString[0:width])
+	lastBit := strings.TrimSpace(theString[width:len(theString)])
+	return firstBit + "\n" + lastBit
 }

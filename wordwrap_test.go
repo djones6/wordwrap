@@ -35,8 +35,14 @@ func TestWrapTwoWords(t *testing.T) {
 	assert.Equal(t, expected, WordWrap(input, 7))
 }
 
-// func TestWrapOnWordBoundary(t *testing.T) {
-// 	input := "freddy fox"
-// 	expected := "freddy\nfox"
-// 	assert.Equal(t, expected, WordWrap(input, 6))
-// }
+func TestWrapThreeWordsOnSeparateLines(t *testing.T) {
+	input := "freddy farty fox"
+	expected := "freddy\nfarty\nfox"
+	assert.Equal(t, expected, WordWrap(input, 6))
+}
+
+func TestWrapOnWordBoundary(t *testing.T) {
+	input := "freddy fox"
+	expected := "freddy\nfox"
+	assert.Equal(t, expected, WordWrap(input, 6))
+}
